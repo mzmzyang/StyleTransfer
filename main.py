@@ -81,11 +81,11 @@ def style_transfer(style_image, content_image):
             print("iter:%d, loss:%.9f" % (i, loss))
             if (i+1) % 100 == 0:
                 image = np.clip(target_image + 128,0,255).astype(np.uint8)
-                Image.fromarray(image).save("./img_%d.jpg" % (i+1))
+                Image.fromarray(image).save("./image/img_%d.jpg" % (i+1))
 
 if __name__ == '__main__':
-    style = Image.open('style4.jpg')
+    style = Image.open('./image/style4.jpg')
     style = np.array(style).astype(np.float32) - 128.0
-    content = Image.open('content.jpg')
+    content = Image.open('./image/content.jpg')
     content = np.array(content).astype(np.float32) - 128.0
     style_transfer(style, content)
